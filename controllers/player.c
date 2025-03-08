@@ -57,8 +57,22 @@ void playerAttack(struct Player *player, struct Enemy *enemy) {
 }
 
 void drawPlayer(SDL_Renderer *renderer, SDL_FRect rect) {
-	SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
+	SDL_SetRenderDrawColor(renderer, COLOR_PLAYER);
     rect.x = 12 * TILE_SIZE;
     rect.y = 8 * TILE_SIZE;
+    SDL_RenderFillRect(renderer, &rect);
+
+	SDL_SetRenderDrawColor(renderer, COLOR_HP);
+    rect.x = 0;
+    rect.y = 0;
+	rect.w = GAME_WINDOW_WIDTH;
+	rect.h = TILE_SIZE / 2;
+    SDL_RenderFillRect(renderer, &rect);
+
+	SDL_SetRenderDrawColor(renderer, COLOR_MANA);
+    rect.x = 0;
+    rect.y = TILE_SIZE / 2;
+	rect.w = GAME_WINDOW_WIDTH;
+	rect.h = TILE_SIZE / 2;
     SDL_RenderFillRect(renderer, &rect);
 }

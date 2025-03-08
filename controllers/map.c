@@ -6,12 +6,12 @@
 #include "../globals.h"
 #include "../models.h"
 
-void initMap(char map[40][41]) {
+void initMap(char map[MAP_SIZE][MAP_SIZE + 1]) {
     FILE *fp;
     fp = fopen("assets/maps/map.txt", "r");
-    char line[41];
+    char line[MAP_SIZE + 1];
     int i = 0;
-    while(fgets(line, 41, fp)) {
+    while(fgets(line, MAP_SIZE + 1, fp)) {
        if(!strcmp(line, "\n")) {
             continue;
        }
@@ -21,8 +21,8 @@ void initMap(char map[40][41]) {
     fclose(fp);
 }
 
-void drawMap(SDL_Renderer *renderer, char map[40][41], struct Player *player, SDL_FRect rect) {
-    for (size_t i = 0; i < 40; i++) {
+void drawMap(SDL_Renderer *renderer, char map[MAP_SIZE][MAP_SIZE + 1], struct Player *player, SDL_FRect rect) {
+    for (size_t i = 0; i < MAP_SIZE; i++) {
             for (size_t j = 0; j < strlen(map[i]); j++) {
 
                 rect.x = (j * TILE_SIZE) + (player->position_x * TILE_SIZE) - (12 * TILE_SIZE);
@@ -30,11 +30,11 @@ void drawMap(SDL_Renderer *renderer, char map[40][41], struct Player *player, SD
 
                 switch (map[i][j]) {
                 case 'A':
-                    SDL_SetRenderDrawColor(renderer, 100, 50, 20, 255);
+                    SDL_SetRenderDrawColor(renderer, COLOR_A);
                     break;
                 
                 case 'B':
-                    SDL_SetRenderDrawColor(renderer, 37, 36, 39, 255);
+                    SDL_SetRenderDrawColor(renderer, COLOR_B);
                     break;
                 
                 default:

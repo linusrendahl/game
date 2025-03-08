@@ -27,7 +27,7 @@ int main(int argc, char *argv[]) {
     SDL_FRect rect = { 0, 0, TILE_SIZE, TILE_SIZE };
     struct Player player;
 	struct Enemy enemies[QUANTITY_ENEMIES];
-    char map[40][41];
+    char map[MAP_SIZE][MAP_SIZE + 1];
 
     initWindow(&window, &renderer);    
 	initPlayer(&player);
