@@ -2,6 +2,8 @@
 
 struct Skill {};
 struct SkillTree {};
+struct UserInput {
+};
 
 struct Tile {
 	int sprite;
@@ -24,6 +26,9 @@ struct Player {
 	int distance;	
 	int position_x;
 	int position_y;
+	int target_position_x;
+	int target_position_y;
+	bool isWalking;
 	struct Skill skills[];
 };
 

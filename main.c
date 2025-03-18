@@ -1,15 +1,5 @@
-// SDL3 install https://www.youtube.com/watch?v=Wuj7JJ7QcHk
-// makefile: clang main.c -o main `pkg-config --libs --cflags sdl2
-// https://wiki.libsdl.org/SDL3/README/cmake
-// cmake -S . -B build -DSDL_FRAMEWORK=ON -DCMAKE_OSX_ARCHITECTURES="arm64;x86_64"
-// cmake --build build
-// cmake --install build --prefix ~/SDL
-// Move sdl3.framework to ~/Library/Frameworks/
-// create maps in ascii files (easier to edit). load ascii to array > render for each character to tile.
-// tiling POE: https://www.pathofexile.com/forum/view-thread/55091
 #include <SDL3/SDL.h>
 #include <SDL3/SDL_main.h>
-#include <stdio.h>
 
 #include "models.h"
 #include "globals.h"
@@ -17,6 +7,16 @@
 #include "controllers/player.h"
 #include "controllers/enemy.h"
 #include "controllers/map.h"
+
+/** 
+ * Walking
+ * 1. Standing still
+ * 2. Read input
+ * 3. Set destination tile/player position
+ * 4. isWalking = true
+ * 5. if isWalking, do not change destionation tile / ignore read input (or put in queue).
+ * 6. when arrived, isWalking = true. (back to 1 / next in queue).
+ * **/
 
 int main(int argc, char *argv[]) {
     SDL_Window *window; 
@@ -26,11 +26,13 @@ int main(int argc, char *argv[]) {
     SDL_Event event;
     SDL_FRect rect = { 0, 0, TILE_SIZE, TILE_SIZE };
     struct Player player;
-	struct Enemy enemies[QUANTITY_ENEMIES];
+    struct Enemy enemies[QUANTITY_ENEMIES];
     char map[MAP_SIZE][MAP_SIZE + 1];
+    unsigned int lastTime = 0, currentTime;
+    unsigned int delta;
 
     initWindow(&window, &renderer);    
-	initPlayer(&player);
+    initPlayer(&player);
     initMap(map); 
    
     while (1) {
@@ -38,6 +40,20 @@ int main(int argc, char *argv[]) {
         if (event.type == SDL_EVENT_QUIT) {
             break;
         }
+
+        currentTime = SDL_GetTicks();
+        delta = currentTime - lastTime;
+
+        /** 
+         * UserInput struct: set list of keyboard inputs.
+         * UserInput is then used by several structs:
+         * pass UserInput to userController, read scancode, decide what to do.
+         * (why not just pass the SDL_Event instead?)
+         * Player:
+         * Skills: 
+         * Menu:
+         * TargetEnemy: 
+         * **/ 
 
         readInputs(event, &player); 
 
@@ -48,6 +64,7 @@ int main(int argc, char *argv[]) {
         drawPlayer(renderer, rect);
 
         SDL_RenderPresent(renderer);
+        lastTime = currentTime;
     }
 
     SDL_DestroyTexture(texture);

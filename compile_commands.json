@@ -1,0 +1,19 @@
+[
+ {
+  "directory": "/Users/liren/Code/projects/c/game",
+  "arguments": [
+   "clang",
+   "main.c",
+   "controllers/enemy.c",
+   "controllers/player.c",
+   "controllers/game.c",
+   "controllers/map.c",
+   "controllers/sdl.c",
+   "-I/usr/local/include",
+   "-L/usr/local/lib",
+   "-Wl,-rpath,/usr/local/lib",
+   "-lSDL3"
+  ],
+  "file": "controllers/sdl.c"
+ }
+]

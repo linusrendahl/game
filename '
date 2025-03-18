@@ -26,10 +26,11 @@ void drawMap(SDL_Renderer *renderer, char map[MAP_SIZE][MAP_SIZE + 1], struct Pl
             for (size_t j = 0; j < strlen(map[i]); j++) {
 
                 
-                rect.x = (j * TILE_SIZE) + (player->position_x * TILE_SIZE) - (12 * TILE_SIZE);
-                rect.y = (i * TILE_SIZE) + (player->position_y * TILE_SIZE) - (8 * TILE_SIZE);
+                rect.x = (j * TILE_SIZE) + (player->position_x) - (12 * TILE_SIZE);
+                rect.y = (i * TILE_SIZE) + (player->position_y) - (8 * TILE_SIZE);
 
                 if(player->isWalking) {
+                    printf("player is walking.");
                     player->position_x++;
                     player->position_y++;
                 }
