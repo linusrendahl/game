@@ -26,13 +26,15 @@ void drawMap(SDL_Renderer *renderer, char map[MAP_SIZE][MAP_SIZE + 1], struct Pl
             for (size_t j = 0; j < strlen(map[i]); j++) {
 
                 
-                rect.x = (j * TILE_SIZE) + (player->position_x * TILE_SIZE) - (12 * TILE_SIZE);
-                rect.y = (i * TILE_SIZE) + (player->position_y * TILE_SIZE) - (8 * TILE_SIZE);
+                rect.x = (j * TILE_SIZE) - (player->position_x * TILE_SIZE) + (12 * TILE_SIZE) + (player->distanceWalked * (player->position_x - player->target_position_x));
+                rect.y = (i * TILE_SIZE) - (player->position_y * TILE_SIZE) + (8 * TILE_SIZE) + (player->distanceWalked * (player->position_y - player->target_position_y));
+    
+                
+                
 
-                if(player->isWalking) {
-                    player->position_x++;
-                    player->position_y++;
-                }
+                // walk to target
+                // when done walking, set current position to target position
+                // isWalking = false
 
                 switch (map[i][j]) {
                 case 'A':

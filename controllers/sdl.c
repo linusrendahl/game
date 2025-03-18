@@ -18,9 +18,9 @@ int initWindow(SDL_Window **window, SDL_Renderer **renderer) {
 }
 
 void readInputs(SDL_Event event, struct Player *player) {
-        if(player->target_position_x == player->position_x && player->target_position_y == player->position_y) {
-		player->isWalking = false;
-	}
+        //if(player->target_position_x == player->position_x && player->target_position_y == player->position_y) {
+	//	player->isWalking = false;
+	//}
 
         if(event.type == SDL_EVENT_KEY_DOWN) {
             if(event.key.scancode == SDL_SCANCODE_S) {

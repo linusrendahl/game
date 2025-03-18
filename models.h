@@ -28,6 +28,8 @@ struct Player {
 	int position_y;
 	int target_position_x;
 	int target_position_y;
+	int distanceWalked;
+	bool diagonalMovement;
 	bool isWalking;
 	struct Skill skills[];
 };

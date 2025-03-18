@@ -9,48 +9,53 @@
 #include "../globals.h"
 #include "player.h"
 
-#define moveDistanceStep 1
-#define PLAYER_POS_ROW 8
-#define PLAYER_POS_COL 12 
+#define PLAYER_POS_ROW 2
+#define PLAYER_POS_COL 2
 
 void initPlayer(struct Player *player) {
 	player->xp = 200;
 	player->attack = 42;
-	player->speed = 20;
+	player->speed = 600;
 	player->position_x = PLAYER_POS_COL;
 	player->position_y = PLAYER_POS_ROW;
 	player->target_position_x = PLAYER_POS_COL;
 	player->target_position_y = PLAYER_POS_ROW;
+	player->distanceWalked = 0;
+	player->diagonalMovement = false;
 	player->isWalking = false;
 }
 
 void playerMove(struct Player *player, char direction[]) {
 	if(!player->isWalking) {
-		player->isWalking = true;
 		if(strcmp(direction, "west") == 0) {
-			player->target_position_x += moveDistanceStep ;
+			player->target_position_x = player->position_x - 1;
 		} else if (strcmp(direction, "east") == 0) {
-			player->target_position_x -= moveDistanceStep;
+			player->target_position_x = player->position_x + 1;
 		} else if (strcmp(direction, "south") == 0) {
-			player->target_position_y -= moveDistanceStep;
+			player->target_position_y = player->position_y + 1;
 		} else if (strcmp(direction, "north") == 0) {
-			player->target_position_y += moveDistanceStep;
+			player->target_position_y = player->position_y - 1;
 		}  else if (strcmp(direction, "northwest") == 0) {
-			player->target_position_y += moveDistanceStep;
-			player->target_position_x += moveDistanceStep;
+			player->diagonalMovement = true;
+			player->target_position_y = player->position_y - 1;
+			player->target_position_x = player->position_x - 1;
 		}  else if (strcmp(direction, "northeast") == 0) {
-			player->target_position_y += moveDistanceStep;
-			player->target_position_x -= moveDistanceStep;
+			player->diagonalMovement = true;
+			player->target_position_y = player->position_y - 1;
+			player->target_position_x = player->position_x + 1;
 		}  else if (strcmp(direction, "southwest") == 0) {
-			player->target_position_y -= moveDistanceStep;
-			player->target_position_x += moveDistanceStep;
+			player->diagonalMovement = true;
+			player->target_position_y = player->position_y + 1;
+			player->target_position_x = player->position_x - 1;
 		}  else if (strcmp(direction, "southeast") == 0) {
-			player->target_position_y -= moveDistanceStep;
-			player->target_position_x -= moveDistanceStep;
+			player->diagonalMovement = true;
+			player->target_position_y = player->position_y + 1;
+			player->target_position_x = player->position_x + 1;
 		}
-	}		
+		player->isWalking = true;
+	}
 
-	printf("Player target is %s [x: %d, y: %d]. Position is [x: %d, y: %d]\n", direction, player->target_position_x, player->target_position_x, player->position_x, player->position_y);
+	printf("Player target is %s [x: %d, y: %d]. Position is [x: %d, y: %d]\n", direction, player->target_position_x, player->target_position_y, player->position_x, player->position_y);
 
 };
 

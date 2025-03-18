@@ -43,6 +43,7 @@ int main(int argc, char *argv[]) {
 
         currentTime = SDL_GetTicks();
         delta = currentTime - lastTime;
+        //printf("delta: %d\n", delta);
 
         /** 
          * UserInput struct: set list of keyboard inputs.
@@ -54,17 +55,38 @@ int main(int argc, char *argv[]) {
          * Menu:
          * TargetEnemy: 
          * **/ 
+        readInputs(event, &player);
 
-        readInputs(event, &player); 
+        if(delta > 1000/FPS) {
+            printf("render!");     
 
-        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
-        SDL_RenderClear(renderer);
-        
-        drawMap(renderer, map, &player, rect); 
-        drawPlayer(renderer, rect);
+            SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
+            SDL_RenderClear(renderer);
+            
+            drawMap(renderer, map, &player, rect); 
+            drawPlayer(renderer, rect);
 
-        SDL_RenderPresent(renderer);
-        lastTime = currentTime;
+            if(player.distanceWalked >= TILE_SIZE) {
+                    player.isWalking = false;
+                    player.distanceWalked = 0;
+                    player.position_x = player.target_position_x;
+                    player.position_y = player.target_position_y;
+                    player.diagonalMovement = false;
+                }
+
+                if(player.isWalking) {
+                    if(player.diagonalMovement) {
+                        player.distanceWalked += TILE_SIZE / (TILE_SIZE * 150 / player.speed);
+                    } else {
+                        player.distanceWalked += TILE_SIZE / (TILE_SIZE * 50 / player.speed);
+                    }
+                                        
+                    printf("distance walked: %d\n", player.distanceWalked);
+                }
+
+            SDL_RenderPresent(renderer);
+            lastTime = currentTime;
+        }
     }
 
     SDL_DestroyTexture(texture);
