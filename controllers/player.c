@@ -8,6 +8,7 @@
 #include "../models.h"
 #include "../globals.h"
 #include "player.h"
+#include "map.h"
 
 #define PLAYER_POS_ROW 2
 #define PLAYER_POS_COL 2
@@ -15,7 +16,7 @@
 void initPlayer(struct Player *player) {
 	player->xp = 200;
 	player->attack = 42;
-	player->speed = 600;
+	player->speed = 400;
 	player->position_x = PLAYER_POS_COL;
 	player->position_y = PLAYER_POS_ROW;
 	player->target_position_x = PLAYER_POS_COL;
@@ -28,7 +29,10 @@ void initPlayer(struct Player *player) {
 void playerMove(struct Player *player, char direction[]) {
 	if(!player->isWalking) {
 		if(strcmp(direction, "west") == 0) {
-			player->target_position_x = player->position_x - 1;
+			if(isGridWalkable(player->position_x - 1, player->position_y)) {
+				player->target_position_x = player->position_x - 1;
+
+			}
 		} else if (strcmp(direction, "east") == 0) {
 			player->target_position_x = player->position_x + 1;
 		} else if (strcmp(direction, "south") == 0) {

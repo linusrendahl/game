@@ -52,3 +52,7 @@ void drawMap(SDL_Renderer *renderer, char map[MAP_SIZE][MAP_SIZE + 1], struct Pl
             }
     }
 }
+
+bool isGridWalkable(int targetX, int targetY) {
+    return true;
+}

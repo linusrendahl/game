@@ -9,15 +9,13 @@
 #include "controllers/map.h"
 
 /** 
- * Walking
- * 1. Standing still
- * 2. Read input
- * 3. Set destination tile/player position
- * 4. isWalking = true
- * 5. if isWalking, do not change destionation tile / ignore read input (or put in queue).
- * 6. when arrived, isWalking = true. (back to 1 / next in queue).
+ * Collision on terrain.
+ * Queue next player move.
+ * Spawn mobs.
+ * Attack / use skills.
+ * Gain experience / levels / stats.
+ * Draw sprites.
  * **/
-
 int main(int argc, char *argv[]) {
     SDL_Window *window; 
     SDL_Renderer *renderer;
@@ -34,7 +32,7 @@ int main(int argc, char *argv[]) {
     initWindow(&window, &renderer);    
     initPlayer(&player);
     initMap(map); 
-   
+
     while (1) {
         SDL_PollEvent(&event);
         if (event.type == SDL_EVENT_QUIT) {
@@ -43,46 +41,36 @@ int main(int argc, char *argv[]) {
 
         currentTime = SDL_GetTicks();
         delta = currentTime - lastTime;
-        //printf("delta: %d\n", delta);
 
-        /** 
-         * UserInput struct: set list of keyboard inputs.
-         * UserInput is then used by several structs:
-         * pass UserInput to userController, read scancode, decide what to do.
-         * (why not just pass the SDL_Event instead?)
-         * Player:
-         * Skills: 
-         * Menu:
-         * TargetEnemy: 
-         * **/ 
-        readInputs(event, &player);
+        readInputs(event, &player); 
 
         if(delta > 1000/FPS) {
-            printf("render!");     
+            printf("render!");
 
             SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
             SDL_RenderClear(renderer);
-            
+
+            if(player.distanceWalked >= TILE_SIZE) {
+                player.isWalking = false;
+                player.distanceWalked = 0;
+                player.position_x = player.target_position_x;
+                player.position_y = player.target_position_y;
+                player.diagonalMovement = false;
+            }
+
+            if(player.isWalking) {
+                if(player.diagonalMovement) {
+                    player.distanceWalked += TILE_SIZE / (TILE_SIZE * 120 / player.speed);
+                } else {
+                    player.distanceWalked += TILE_SIZE / (TILE_SIZE * 50 / player.speed);
+                }
+                printf("distance walked: %d\n", player.distanceWalked);
+            }
+
             drawMap(renderer, map, &player, rect); 
             drawPlayer(renderer, rect);
 
-            if(player.distanceWalked >= TILE_SIZE) {
-                    player.isWalking = false;
-                    player.distanceWalked = 0;
-                    player.position_x = player.target_position_x;
-                    player.position_y = player.target_position_y;
-                    player.diagonalMovement = false;
-                }
 
-                if(player.isWalking) {
-                    if(player.diagonalMovement) {
-                        player.distanceWalked += TILE_SIZE / (TILE_SIZE * 150 / player.speed);
-                    } else {
-                        player.distanceWalked += TILE_SIZE / (TILE_SIZE * 50 / player.speed);
-                    }
-                                        
-                    printf("distance walked: %d\n", player.distanceWalked);
-                }
 
             SDL_RenderPresent(renderer);
             lastTime = currentTime;
