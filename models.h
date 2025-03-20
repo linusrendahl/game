@@ -1,14 +1,23 @@
 #include <stdbool.h>
 
-struct Skill {};
-struct SkillTree {};
+struct Skill {
+	char hotkey;
+};
+
+
+struct SkillTree {
+	// graph / matrix
+};
+
 struct UserInput {
+	// current_input
+	// next_input (queue)
 };
 
 struct Tile {
 	int sprite;
 	int speed;
-	bool canWalkOver;
+	bool tileWalkable;
 };
 
 struct Map {
@@ -36,6 +45,7 @@ struct Player {
 
 struct Enemy {
 	int xp;
+	int maxHitpoints;
 	int hitpoints;
 	int speed;
 	int attack;

@@ -9,18 +9,32 @@
 #include "controllers/map.h"
 
 /** 
- * Collision on terrain.
- * Queue next player move.
- * Spawn mobs.
- * Attack / use skills.
+ * Add skills: exori, wave, vis hur, ultimate explosion.
+ * Collision on enemies.
  * Gain experience / levels / stats.
+ * Enemy attacks.
  * Draw sprites.
+ * Time to clean up all code / organize / rewrite.
+ *
+ * Gameplay:
+ * - ability to destroy terrain.
+ * - procedurally generated maps.
+ * - map levels/stairs, portals to other maps.
+ * - loot & crafting.
+ * - infinite scaling.
+ * - coop 5 player teams / matchmaking.
+ * - boss fights (telegraphed attacks).
+ * - single class, infinite builds (skill tree)
+ * - theme of game?
+ * - 3d models to 2d sprites / 2d sprites / 3d models (?)
+ * 
+ * - write tutorial as we go along
  * **/
 int main(int argc, char *argv[]) {
     SDL_Window *window; 
     SDL_Renderer *renderer;
-    SDL_Surface *surface;
-    SDL_Texture *texture;
+    //SDL_Surface *surface;
+    //SDL_Texture *texture;
     SDL_Event event;
     SDL_FRect rect = { 0, 0, TILE_SIZE, TILE_SIZE };
     struct Player player;
@@ -29,8 +43,9 @@ int main(int argc, char *argv[]) {
     unsigned int lastTime = 0, currentTime;
     unsigned int delta;
 
-    initWindow(&window, &renderer);    
+    initWindow(&window, &renderer);
     initPlayer(&player);
+    initEnemies(enemies);
     initMap(map); 
 
     while (1) {
@@ -45,39 +60,18 @@ int main(int argc, char *argv[]) {
         readInputs(event, &player); 
 
         if(delta > 1000/FPS) {
-            printf("render!");
-
             SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
             SDL_RenderClear(renderer);
 
-            if(player.distanceWalked >= TILE_SIZE) {
-                player.isWalking = false;
-                player.distanceWalked = 0;
-                player.position_x = player.target_position_x;
-                player.position_y = player.target_position_y;
-                player.diagonalMovement = false;
-            }
-
-            if(player.isWalking) {
-                if(player.diagonalMovement) {
-                    player.distanceWalked += TILE_SIZE / (TILE_SIZE * 120 / player.speed);
-                } else {
-                    player.distanceWalked += TILE_SIZE / (TILE_SIZE * 50 / player.speed);
-                }
-                printf("distance walked: %d\n", player.distanceWalked);
-            }
-
             drawMap(renderer, map, &player, rect); 
-            drawPlayer(renderer, rect);
-
-
-
+            drawPlayer(renderer, rect, &player, map);
+            drawEnemies(renderer, rect, enemies, &player);
             SDL_RenderPresent(renderer);
             lastTime = currentTime;
         }
     }
 
-    SDL_DestroyTexture(texture);
+    //SDL_DestroyTexture(texture);
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
 

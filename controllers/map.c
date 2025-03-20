@@ -24,17 +24,8 @@ void initMap(char map[MAP_SIZE][MAP_SIZE + 1]) {
 void drawMap(SDL_Renderer *renderer, char map[MAP_SIZE][MAP_SIZE + 1], struct Player *player, SDL_FRect rect) {
     for (size_t i = 0; i < MAP_SIZE; i++) {
             for (size_t j = 0; j < strlen(map[i]); j++) {
-
-                
                 rect.x = (j * TILE_SIZE) - (player->position_x * TILE_SIZE) + (12 * TILE_SIZE) + (player->distanceWalked * (player->position_x - player->target_position_x));
                 rect.y = (i * TILE_SIZE) - (player->position_y * TILE_SIZE) + (8 * TILE_SIZE) + (player->distanceWalked * (player->position_y - player->target_position_y));
-    
-                
-                
-
-                // walk to target
-                // when done walking, set current position to target position
-                // isWalking = false
 
                 switch (map[i][j]) {
                 case 'A':
@@ -51,8 +42,4 @@ void drawMap(SDL_Renderer *renderer, char map[MAP_SIZE][MAP_SIZE + 1], struct Pl
                 SDL_RenderFillRect(renderer, &rect);
             }
     }
-}
-
-bool isGridWalkable(int targetX, int targetY) {
-    return true;
 }
