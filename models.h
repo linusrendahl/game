@@ -25,6 +25,17 @@ struct Map {
 	struct Tile tiles[(25 * 32 * 4) + (17 * 32 * 4)]; // size: 4 screens
 };
 
+enum walkingDirection {
+	NORTH,
+	EAST,
+	SOUTH,
+	WEST,
+	NORTHEAST,
+	SOUTHEAST,
+	SOUTHWEST,
+	NORTHWEST
+};
+
 struct Player {
 	int xp;
 	int hitpoints;
@@ -40,6 +51,7 @@ struct Player {
 	int distanceWalked;
 	bool diagonalMovement;
 	bool isWalking;
+	enum walkingDirection walkingDirection;
 	struct Skill skills[];
 };
 

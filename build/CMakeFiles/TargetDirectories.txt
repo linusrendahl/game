@@ -1,0 +1,11 @@
+/Users/liren/Code/projects/c/game/build/CMakeFiles/Game.dir
+/Users/liren/Code/projects/c/game/build/CMakeFiles/edit_cache.dir
+/Users/liren/Code/projects/c/game/build/CMakeFiles/rebuild_cache.dir
+/Users/liren/Code/projects/c/game/build/vendored/SDL/CMakeFiles/SDL3-shared.dir
+/Users/liren/Code/projects/c/game/build/vendored/SDL/CMakeFiles/SDL3_test.dir
+/Users/liren/Code/projects/c/game/build/vendored/SDL/CMakeFiles/SDL_uclibc.dir
+/Users/liren/Code/projects/c/game/build/vendored/SDL/CMakeFiles/edit_cache.dir
+/Users/liren/Code/projects/c/game/build/vendored/SDL/CMakeFiles/rebuild_cache.dir
+/Users/liren/Code/projects/c/game/build/vendored/SDL_image/CMakeFiles/SDL3_image-shared.dir
+/Users/liren/Code/projects/c/game/build/vendored/SDL_image/CMakeFiles/edit_cache.dir
+/Users/liren/Code/projects/c/game/build/vendored/SDL_image/CMakeFiles/rebuild_cache.dir

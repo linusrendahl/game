@@ -11,8 +11,8 @@
    "controllers/sdl.c",
    "-I/usr/local/include",
    "-L/usr/local/lib",
-   "-Wl,-rpath,/usr/local/lib",
-   "-lSDL3"
+   "-Wl,-rpath,/Library/Frameworks/",
+   "-lSDL3_image",
   ],
   "file": "controllers/sdl.c"
  }

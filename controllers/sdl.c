@@ -17,6 +17,9 @@ int initWindow(SDL_Window **window, SDL_Renderer **renderer) {
     return 0;
 }
 
+// Change to SDL_GetKeyboardState instead of events.
+// Keep an array with all keystates[] = bool that are currently in active state.
+// https://wiki.libsdl.org/SDL3/SDL_GetKeyboardState
 void readInputs(SDL_Event event, struct Player *player) {
         //if(player->target_position_x == player->position_x && player->target_position_y == player->position_y) {
 	//	player->isWalking = false;
