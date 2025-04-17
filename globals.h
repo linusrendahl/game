@@ -1,3 +1,4 @@
+#define RENDER_SCALE 1.0f
 #define QUANTITY_ENEMIES  4
 #define TILE_SIZE 32
 #define FPS 60
@@ -8,5 +9,5 @@
 #define COLOR_ENEMIES 255, 0, 0, 255
 #define COLOR_HP 200, 50, 50, 255
 #define COLOR_MANA 108, 153, 187, 255
-#define COLOR_A 176, 82, 121, 255
+#define COLOR_A 60, 60, 60, 255
 #define COLOR_B 46, 46, 46, 255

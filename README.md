@@ -9,3 +9,8 @@
 // tiling POE: https://www.pathofexile.com/forum/view-thread/55091
 // https://github.com/nickdiego/compiledb (recognize sdl in neovim/clang for code completions).
 
+
+
+// EXPORT PNG FROM AFFINITY
+- Use: RGB 16-BIT
+- Uncheck "Embed ICC Profile"

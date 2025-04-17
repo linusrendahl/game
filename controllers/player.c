@@ -8,6 +8,8 @@
 #include "../models.h"
 #include "../globals.h"
 #include "player.h"
+#include "SDL3/SDL_blendmode.h"
+#include "SDL3/SDL_render.h"
 #include "map.h"
 
 #define PLAYER_POS_ROW 20
@@ -75,7 +77,13 @@ void playerAttack(struct Player *player, struct Enemy *enemy) {
 	printf("Enemy attacked and loses %d \n", damage);
 }
 
-void drawPlayer(SDL_Renderer *renderer, SDL_FRect rect, struct Player *player, char map[MAP_SIZE][MAP_SIZE + 1], SDL_Texture *playerTexture) {
+void drawPlayer(
+	SDL_Renderer *renderer,
+	SDL_FRect rect,
+	struct Player *player,
+	char map[MAP_SIZE][MAP_SIZE + 1],
+	SDL_Texture *playerTexture
+	) {
 	bool tileWalkable = map[player->target_position_y][player->target_position_x] != 'A';
 	if(player->distanceWalked >= TILE_SIZE || !tileWalkable) {
 		player->isWalking = false;
@@ -148,7 +156,10 @@ void drawPlayer(SDL_Renderer *renderer, SDL_FRect rect, struct Player *player, c
 		break;
 
 	}
-        SDL_RenderTexture(renderer, playerTexture, &sprite_frame, &dst);
+	//SDL_BlendMode *blendMode;
+	//SDL_BlendMode blendMode = 100;
+	//SDL_SetTextureBlendMode(playerTexture, SDL_BLENDMODE_BLEND);
+	SDL_RenderTexture(renderer, playerTexture, &sprite_frame, &dst);
 
 
 	SDL_SetRenderDrawColor(renderer, COLOR_HP);
