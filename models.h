@@ -1,4 +1,7 @@
+#include "SDL3/SDL_render.h"
 #include <stdbool.h>
+#include <SDL3/SDL.h>
+#include "globals.h"
 
 struct Skill {
 	char hotkey;
@@ -14,16 +17,16 @@ struct UserInput {
 	// next_input (queue)
 };
 
-struct Tile {
-	int sprite;
+typedef struct Tile {
+	SDL_Texture *texture;
 	int speed;
 	bool tileWalkable;
-};
+} Tile;
 
-struct Map {
-	char filename[20];
-	struct Tile tiles[(25 * 32 * 4) + (17 * 32 * 4)]; // size: 4 screens
-};
+typedef struct Map {
+	char *map;
+	Tile floor;
+} Map;
 
 enum walkingDirection {
 	NORTH,
@@ -36,7 +39,7 @@ enum walkingDirection {
 	NORTHWEST
 };
 
-struct Player {
+typedef struct Player {
 	int xp;
 	int hitpoints;
 	int mana;
@@ -49,11 +52,12 @@ struct Player {
 	int target_position_x;
 	int target_position_y;
 	int distanceWalked;
+	SDL_Texture *texture;
 	bool diagonalMovement;
 	bool isWalking;
 	enum walkingDirection walkingDirection;
 	struct Skill skills[];
-};
+} Player;
 
 struct Enemy {
 	int xp;
@@ -66,3 +70,16 @@ struct Enemy {
 	bool isAlive;
 	struct Skill skills[];
 };
+
+typedef struct Game {
+    SDL_Window *window;
+    SDL_Renderer *renderer;
+    SDL_Event event;
+    SDL_FRect rect;
+    char *map;
+    unsigned int lastRenderTime;
+    unsigned int currentTime;
+    unsigned int timeSinceLastRender;
+    Player player;
+} Game;
+

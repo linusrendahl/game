@@ -53,10 +53,10 @@ RM = /usr/local/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/liren/Code/projects/c/game
+CMAKE_SOURCE_DIR = /Users/liren/code/projects/c/game
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/liren/Code/projects/c/game
+CMAKE_BINARY_DIR = /Users/liren/code/projects/c/game
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Game.dir/depend.make
@@ -75,86 +75,86 @@ CMakeFiles/Game.dir/codegen:
 CMakeFiles/Game.dir/main.c.o: CMakeFiles/Game.dir/flags.make
 CMakeFiles/Game.dir/main.c.o: main.c
 CMakeFiles/Game.dir/main.c.o: CMakeFiles/Game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/liren/Code/projects/c/game/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/Game.dir/main.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Game.dir/main.c.o -MF CMakeFiles/Game.dir/main.c.o.d -o CMakeFiles/Game.dir/main.c.o -c /Users/liren/Code/projects/c/game/main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/liren/code/projects/c/game/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/Game.dir/main.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Game.dir/main.c.o -MF CMakeFiles/Game.dir/main.c.o.d -o CMakeFiles/Game.dir/main.c.o -c /Users/liren/code/projects/c/game/main.c
 
 CMakeFiles/Game.dir/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Game.dir/main.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/liren/Code/projects/c/game/main.c > CMakeFiles/Game.dir/main.c.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/liren/code/projects/c/game/main.c > CMakeFiles/Game.dir/main.c.i
 
 CMakeFiles/Game.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Game.dir/main.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/liren/Code/projects/c/game/main.c -o CMakeFiles/Game.dir/main.c.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/liren/code/projects/c/game/main.c -o CMakeFiles/Game.dir/main.c.s
 
 CMakeFiles/Game.dir/controllers/player.c.o: CMakeFiles/Game.dir/flags.make
 CMakeFiles/Game.dir/controllers/player.c.o: controllers/player.c
 CMakeFiles/Game.dir/controllers/player.c.o: CMakeFiles/Game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/liren/Code/projects/c/game/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/Game.dir/controllers/player.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Game.dir/controllers/player.c.o -MF CMakeFiles/Game.dir/controllers/player.c.o.d -o CMakeFiles/Game.dir/controllers/player.c.o -c /Users/liren/Code/projects/c/game/controllers/player.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/liren/code/projects/c/game/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/Game.dir/controllers/player.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Game.dir/controllers/player.c.o -MF CMakeFiles/Game.dir/controllers/player.c.o.d -o CMakeFiles/Game.dir/controllers/player.c.o -c /Users/liren/code/projects/c/game/controllers/player.c
 
 CMakeFiles/Game.dir/controllers/player.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Game.dir/controllers/player.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/liren/Code/projects/c/game/controllers/player.c > CMakeFiles/Game.dir/controllers/player.c.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/liren/code/projects/c/game/controllers/player.c > CMakeFiles/Game.dir/controllers/player.c.i
 
 CMakeFiles/Game.dir/controllers/player.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Game.dir/controllers/player.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/liren/Code/projects/c/game/controllers/player.c -o CMakeFiles/Game.dir/controllers/player.c.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/liren/code/projects/c/game/controllers/player.c -o CMakeFiles/Game.dir/controllers/player.c.s
 
 CMakeFiles/Game.dir/controllers/enemy.c.o: CMakeFiles/Game.dir/flags.make
 CMakeFiles/Game.dir/controllers/enemy.c.o: controllers/enemy.c
 CMakeFiles/Game.dir/controllers/enemy.c.o: CMakeFiles/Game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/liren/Code/projects/c/game/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/Game.dir/controllers/enemy.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Game.dir/controllers/enemy.c.o -MF CMakeFiles/Game.dir/controllers/enemy.c.o.d -o CMakeFiles/Game.dir/controllers/enemy.c.o -c /Users/liren/Code/projects/c/game/controllers/enemy.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/liren/code/projects/c/game/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/Game.dir/controllers/enemy.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Game.dir/controllers/enemy.c.o -MF CMakeFiles/Game.dir/controllers/enemy.c.o.d -o CMakeFiles/Game.dir/controllers/enemy.c.o -c /Users/liren/code/projects/c/game/controllers/enemy.c
 
 CMakeFiles/Game.dir/controllers/enemy.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Game.dir/controllers/enemy.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/liren/Code/projects/c/game/controllers/enemy.c > CMakeFiles/Game.dir/controllers/enemy.c.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/liren/code/projects/c/game/controllers/enemy.c > CMakeFiles/Game.dir/controllers/enemy.c.i
 
 CMakeFiles/Game.dir/controllers/enemy.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Game.dir/controllers/enemy.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/liren/Code/projects/c/game/controllers/enemy.c -o CMakeFiles/Game.dir/controllers/enemy.c.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/liren/code/projects/c/game/controllers/enemy.c -o CMakeFiles/Game.dir/controllers/enemy.c.s
 
 CMakeFiles/Game.dir/controllers/sdl.c.o: CMakeFiles/Game.dir/flags.make
 CMakeFiles/Game.dir/controllers/sdl.c.o: controllers/sdl.c
 CMakeFiles/Game.dir/controllers/sdl.c.o: CMakeFiles/Game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/liren/Code/projects/c/game/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/Game.dir/controllers/sdl.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Game.dir/controllers/sdl.c.o -MF CMakeFiles/Game.dir/controllers/sdl.c.o.d -o CMakeFiles/Game.dir/controllers/sdl.c.o -c /Users/liren/Code/projects/c/game/controllers/sdl.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/liren/code/projects/c/game/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/Game.dir/controllers/sdl.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Game.dir/controllers/sdl.c.o -MF CMakeFiles/Game.dir/controllers/sdl.c.o.d -o CMakeFiles/Game.dir/controllers/sdl.c.o -c /Users/liren/code/projects/c/game/controllers/sdl.c
 
 CMakeFiles/Game.dir/controllers/sdl.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Game.dir/controllers/sdl.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/liren/Code/projects/c/game/controllers/sdl.c > CMakeFiles/Game.dir/controllers/sdl.c.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/liren/code/projects/c/game/controllers/sdl.c > CMakeFiles/Game.dir/controllers/sdl.c.i
 
 CMakeFiles/Game.dir/controllers/sdl.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Game.dir/controllers/sdl.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/liren/Code/projects/c/game/controllers/sdl.c -o CMakeFiles/Game.dir/controllers/sdl.c.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/liren/code/projects/c/game/controllers/sdl.c -o CMakeFiles/Game.dir/controllers/sdl.c.s
 
 CMakeFiles/Game.dir/controllers/map.c.o: CMakeFiles/Game.dir/flags.make
 CMakeFiles/Game.dir/controllers/map.c.o: controllers/map.c
 CMakeFiles/Game.dir/controllers/map.c.o: CMakeFiles/Game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/liren/Code/projects/c/game/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/Game.dir/controllers/map.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Game.dir/controllers/map.c.o -MF CMakeFiles/Game.dir/controllers/map.c.o.d -o CMakeFiles/Game.dir/controllers/map.c.o -c /Users/liren/Code/projects/c/game/controllers/map.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/liren/code/projects/c/game/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/Game.dir/controllers/map.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Game.dir/controllers/map.c.o -MF CMakeFiles/Game.dir/controllers/map.c.o.d -o CMakeFiles/Game.dir/controllers/map.c.o -c /Users/liren/code/projects/c/game/controllers/map.c
 
 CMakeFiles/Game.dir/controllers/map.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Game.dir/controllers/map.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/liren/Code/projects/c/game/controllers/map.c > CMakeFiles/Game.dir/controllers/map.c.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/liren/code/projects/c/game/controllers/map.c > CMakeFiles/Game.dir/controllers/map.c.i
 
 CMakeFiles/Game.dir/controllers/map.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Game.dir/controllers/map.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/liren/Code/projects/c/game/controllers/map.c -o CMakeFiles/Game.dir/controllers/map.c.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/liren/code/projects/c/game/controllers/map.c -o CMakeFiles/Game.dir/controllers/map.c.s
 
 CMakeFiles/Game.dir/controllers/game.c.o: CMakeFiles/Game.dir/flags.make
 CMakeFiles/Game.dir/controllers/game.c.o: controllers/game.c
 CMakeFiles/Game.dir/controllers/game.c.o: CMakeFiles/Game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/liren/Code/projects/c/game/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/Game.dir/controllers/game.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Game.dir/controllers/game.c.o -MF CMakeFiles/Game.dir/controllers/game.c.o.d -o CMakeFiles/Game.dir/controllers/game.c.o -c /Users/liren/Code/projects/c/game/controllers/game.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/liren/code/projects/c/game/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/Game.dir/controllers/game.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Game.dir/controllers/game.c.o -MF CMakeFiles/Game.dir/controllers/game.c.o.d -o CMakeFiles/Game.dir/controllers/game.c.o -c /Users/liren/code/projects/c/game/controllers/game.c
 
 CMakeFiles/Game.dir/controllers/game.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Game.dir/controllers/game.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/liren/Code/projects/c/game/controllers/game.c > CMakeFiles/Game.dir/controllers/game.c.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/liren/code/projects/c/game/controllers/game.c > CMakeFiles/Game.dir/controllers/game.c.i
 
 CMakeFiles/Game.dir/controllers/game.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Game.dir/controllers/game.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/liren/Code/projects/c/game/controllers/game.c -o CMakeFiles/Game.dir/controllers/game.c.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/liren/code/projects/c/game/controllers/game.c -o CMakeFiles/Game.dir/controllers/game.c.s
 
 # Object files for target Game
 Game_OBJECTS = \
@@ -179,7 +179,7 @@ Game: libSDL3_image.0.3.0.dylib
 Game: libSDL3.0.dylib
 Game: vendored/SDL/src/dynapi/SDL_dynapi.sym
 Game: CMakeFiles/Game.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/liren/Code/projects/c/game/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking C executable Game"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/liren/code/projects/c/game/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking C executable Game"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Game.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -191,6 +191,6 @@ CMakeFiles/Game.dir/clean:
 .PHONY : CMakeFiles/Game.dir/clean
 
 CMakeFiles/Game.dir/depend:
-	cd /Users/liren/Code/projects/c/game && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/liren/Code/projects/c/game /Users/liren/Code/projects/c/game /Users/liren/Code/projects/c/game /Users/liren/Code/projects/c/game /Users/liren/Code/projects/c/game/CMakeFiles/Game.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /Users/liren/code/projects/c/game && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/liren/code/projects/c/game /Users/liren/code/projects/c/game /Users/liren/code/projects/c/game /Users/liren/code/projects/c/game /Users/liren/code/projects/c/game/CMakeFiles/Game.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/Game.dir/depend
 

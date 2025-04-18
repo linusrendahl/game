@@ -4,28 +4,32 @@
 #include <string.h>
 #include <stdlib.h>
 #include <math.h>
-
+#include "../vendored/SDL_image/include/SDL3_image/SDL_image.h"
 #include "../models.h"
 #include "../globals.h"
 #include "player.h"
-#include "SDL3/SDL_blendmode.h"
 #include "SDL3/SDL_render.h"
 #include "map.h"
 
 #define PLAYER_POS_ROW 20
 #define PLAYER_POS_COL 20
 
-void initPlayer(struct Player *player) {
-	player->xp = 200;
-	player->attack = 42;
-	player->speed = 300;
-	player->position_x = PLAYER_POS_COL;
-	player->position_y = PLAYER_POS_ROW;
-	player->target_position_x = PLAYER_POS_COL;
-	player->target_position_y = PLAYER_POS_ROW;
-	player->distanceWalked = 0;
-	player->diagonalMovement = false;
-	player->isWalking = false;
+void initPlayer(Game *game) {
+	char filename[] = "./assets/sprites/character-3.png";
+	SDL_Texture *playerTexture;
+	playerTexture = IMG_LoadTexture(game->renderer, filename);
+	SDL_SetTextureScaleMode(playerTexture, SDL_SCALEMODE_NEAREST);	
+	game->player.xp = 200;
+	game->player.attack = 42;
+	game->player.speed = 800;
+	game->player.position_x = PLAYER_POS_COL;
+	game->player.position_y = PLAYER_POS_ROW;
+	game->player.target_position_x = PLAYER_POS_COL;
+	game->player.target_position_y = PLAYER_POS_ROW;
+	game->player.distanceWalked = 0;
+	game->player.diagonalMovement = false;
+	game->player.isWalking = false;
+	game->player.texture = playerTexture;
 }
 
 void playerMove(struct Player *player, char direction[]) {
@@ -70,7 +74,7 @@ void playerMove(struct Player *player, char direction[]) {
 
 };
 
-void playerAttack(struct Player *player, struct Enemy *enemy) {
+void playerAttack(Player *player, struct Enemy *enemy) {
 	float random = (rand() % 100) / 100.0; 
 	int damage = round(player->attack * random);
 	enemy->hitpoints -= damage;
@@ -78,11 +82,11 @@ void playerAttack(struct Player *player, struct Enemy *enemy) {
 }
 
 void drawPlayer(
+	Game *game,
 	SDL_Renderer *renderer,
 	SDL_FRect rect,
-	struct Player *player,
-	char map[MAP_SIZE][MAP_SIZE + 1],
-	SDL_Texture *playerTexture
+	Player *player,
+	char map[MAP_SIZE][MAP_SIZE]
 	) {
 	bool tileWalkable = map[player->target_position_y][player->target_position_x] != 'A';
 	if(player->distanceWalked >= TILE_SIZE || !tileWalkable) {
@@ -100,9 +104,9 @@ void drawPlayer(
 
 	if(player->isWalking) {
 		if(player->diagonalMovement) {
-			player->distanceWalked += TILE_SIZE / (TILE_SIZE * 71 / player->speed);
+			player->distanceWalked += TILE_SIZE / (TILE_SIZE * 71 / game->player.speed);
 		} else {
-			player->distanceWalked += TILE_SIZE / (TILE_SIZE * 50 / player->speed);
+			player->distanceWalked += TILE_SIZE / (TILE_SIZE * 50 / game->player.speed);
 		}
 	}
 
@@ -156,11 +160,8 @@ void drawPlayer(
 		break;
 
 	}
-	//SDL_BlendMode *blendMode;
-	//SDL_BlendMode blendMode = 100;
-	//SDL_SetTextureBlendMode(playerTexture, SDL_BLENDMODE_BLEND);
-	SDL_RenderTexture(renderer, playerTexture, &sprite_frame, &dst);
 
+	SDL_RenderTexture(renderer, player->texture, &sprite_frame, &dst);
 
 	SDL_SetRenderDrawColor(renderer, COLOR_HP);
 	rect.x = 0;

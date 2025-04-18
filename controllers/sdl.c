@@ -20,35 +20,35 @@ int initWindow(SDL_Window **window, SDL_Renderer **renderer) {
 // Change to SDL_GetKeyboardState instead of events.
 // Keep an array with all keystates[] = bool that are currently in active state.
 // https://wiki.libsdl.org/SDL3/SDL_GetKeyboardState
-void readInputs(SDL_Event event, struct Player *player) {
+void readInputs(Game *game) {
         //if(player->target_position_x == player->position_x && player->target_position_y == player->position_y) {
 	//	player->isWalking = false;
 	//}
 
-        if(event.type == SDL_EVENT_KEY_DOWN) {
-            if(event.key.scancode == SDL_SCANCODE_S) {
-                playerMove(player, "south");
+        if(game->event.type == SDL_EVENT_KEY_DOWN) {
+            if(game->event.key.scancode == SDL_SCANCODE_S) {
+                playerMove(&game->player, "south");
             }
-            if(event.key.scancode == SDL_SCANCODE_W) {
-                playerMove(player, "north");
+            if(game->event.key.scancode == SDL_SCANCODE_W) {
+                playerMove(&game->player, "north");
             }
-            if(event.key.scancode == SDL_SCANCODE_A) {
-                playerMove(player, "west");
+            if(game->event.key.scancode == SDL_SCANCODE_A) {
+                playerMove(&game->player, "west");
             }
-            if(event.key.scancode == SDL_SCANCODE_D) {
-                playerMove(player, "east");
+            if(game->event.key.scancode == SDL_SCANCODE_D) {
+                playerMove(&game->player, "east");
             }
-            if(event.key.scancode == SDL_SCANCODE_Q) {
-                playerMove(player, "northwest");
+            if(game->event.key.scancode == SDL_SCANCODE_Q) {
+                playerMove(&game->player, "northwest");
             }
-            if(event.key.scancode == SDL_SCANCODE_E) {
-                playerMove(player, "northeast");
+            if(game->event.key.scancode == SDL_SCANCODE_E) {
+                playerMove(&game->player, "northeast");
             }
-            if(event.key.scancode == SDL_SCANCODE_C) {
-                playerMove(player, "southeast");
+            if(game->event.key.scancode == SDL_SCANCODE_C) {
+                playerMove(&game->player, "southeast");
             }
-            if(event.key.scancode == SDL_SCANCODE_Z) {
-                playerMove(player, "southwest");
+            if(game->event.key.scancode == SDL_SCANCODE_Z) {
+                playerMove(&game->player, "southwest");
             }
         }
 }

@@ -1,4 +1,4 @@
-# Install script for directory: /Users/liren/Code/projects/c/game
+# Install script for directory: /Users/liren/code/projects/c/game
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,7 +45,7 @@ endif()
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "/Users/liren/Code/projects/c/game/install_local_manifest.txt"
+  file(WRITE "/Users/liren/code/projects/c/game/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()
 if(CMAKE_INSTALL_COMPONENT)
@@ -61,6 +61,6 @@ else()
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "/Users/liren/Code/projects/c/game/${CMAKE_INSTALL_MANIFEST}"
+  file(WRITE "/Users/liren/code/projects/c/game/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()
