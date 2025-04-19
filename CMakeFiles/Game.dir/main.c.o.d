@@ -138,4 +138,7 @@ CMakeFiles/Game.dir/main.c.o: /Users/liren/code/projects/c/game/main.c \
   /Users/liren/code/projects/c/game/controllers/player.h \
   /Users/liren/code/projects/c/game/controllers/../globals.h \
   /Users/liren/code/projects/c/game/controllers/enemy.h \
-  /Users/liren/code/projects/c/game/controllers/map.h
+  /Users/liren/code/projects/c/game/controllers/map.h \
+  /Users/liren/code/projects/c/game/debuggers.h \
+  /Users/liren/code/projects/c/game/controllers/ui.h \
+  /Users/liren/code/projects/c/game/vendored/SDL_ttf/include/SDL3_ttf/SDL_ttf.h

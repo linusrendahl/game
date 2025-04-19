@@ -9,6 +9,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Game.dir/controllers/player.c.o.d"
   "CMakeFiles/Game.dir/controllers/sdl.c.o"
   "CMakeFiles/Game.dir/controllers/sdl.c.o.d"
+  "CMakeFiles/Game.dir/controllers/ui.c.o"
+  "CMakeFiles/Game.dir/controllers/ui.c.o.d"
   "CMakeFiles/Game.dir/main.c.o"
   "CMakeFiles/Game.dir/main.c.o.d"
   "Game"

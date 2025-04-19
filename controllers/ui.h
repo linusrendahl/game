@@ -1,0 +1,2 @@
+
+void drawUI(Game *game);

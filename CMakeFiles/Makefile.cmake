@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
   ".git/HEAD"
-  ".git/refs/heads/main"
+  ".git/refs/heads/refactormap"
   "CMakeFiles/3.31.6/CMakeCCompiler.cmake"
   "CMakeFiles/3.31.6/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.31.6/CMakeOBJCCompiler.cmake"
@@ -39,6 +39,16 @@ set(CMAKE_MAKEFILE_DEPENDS
   "vendored/SDL_image/cmake/sdlcpu.cmake"
   "vendored/SDL_image/cmake/sdlmanpages.cmake"
   "vendored/SDL_image/cmake/sdlplatform.cmake"
+  "vendored/SDL_ttf/CMakeLists.txt"
+  "vendored/SDL_ttf/cmake/Findharfbuzz.cmake"
+  "vendored/SDL_ttf/cmake/Findplutosvg.cmake"
+  "vendored/SDL_ttf/cmake/Findplutovg.cmake"
+  "vendored/SDL_ttf/cmake/GetGitRevisionDescription.cmake"
+  "vendored/SDL_ttf/cmake/PkgConfigHelper.cmake"
+  "vendored/SDL_ttf/cmake/PrivateSdlFunctions.cmake"
+  "vendored/SDL_ttf/cmake/sdlcpu.cmake"
+  "vendored/SDL_ttf/cmake/sdlmanpages.cmake"
+  "vendored/SDL_ttf/cmake/sdlplatform.cmake"
   "/usr/local/lib/cmake/libavif/libavif-config-release.cmake"
   "/usr/local/lib/cmake/libavif/libavif-config-version.cmake"
   "/usr/local/lib/cmake/libavif/libavif-config.cmake"
@@ -82,6 +92,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/usr/local/share/cmake/Modules/Compiler/Clang-OBJC.cmake"
   "/usr/local/share/cmake/Modules/Compiler/Clang.cmake"
   "/usr/local/share/cmake/Modules/Compiler/GNU.cmake"
+  "/usr/local/share/cmake/Modules/FindFreetype.cmake"
   "/usr/local/share/cmake/Modules/FindGit.cmake"
   "/usr/local/share/cmake/Modules/FindPackageHandleStandardArgs.cmake"
   "/usr/local/share/cmake/Modules/FindPackageMessage.cmake"
@@ -115,6 +126,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/usr/local/share/cmake/Modules/Platform/Linker/Apple-AppleClang-OBJC.cmake"
   "/usr/local/share/cmake/Modules/Platform/Linker/Apple-AppleClang.cmake"
   "/usr/local/share/cmake/Modules/Platform/UnixPaths.cmake"
+  "/usr/local/share/cmake/Modules/SelectLibraryConfigurations.cmake"
   "/usr/local/share/cmake/Modules/WriteBasicConfigVersionFile.cmake"
   )
 
@@ -137,6 +149,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "vendored/SDL/include-config-/build_config/SDL_build_config.h"
   "vendored/SDL/CMakeFiles/CMakeDirectoryInformation.cmake"
   "vendored/SDL_image/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "vendored/SDL_ttf/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -146,4 +159,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "vendored/SDL/CMakeFiles/SDL3_test.dir/DependInfo.cmake"
   "vendored/SDL/CMakeFiles/SDL_uclibc.dir/DependInfo.cmake"
   "vendored/SDL_image/CMakeFiles/SDL3_image-shared.dir/DependInfo.cmake"
+  "vendored/SDL_ttf/CMakeFiles/SDL3_ttf-shared.dir/DependInfo.cmake"
   )

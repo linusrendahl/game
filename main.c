@@ -15,6 +15,9 @@
 #include "controllers/player.h"
 #include "controllers/enemy.h"
 #include "controllers/map.h"
+#include "debuggers.h"
+#include "controllers/ui.h"
+#include "vendored/SDL_ttf/include/SDL3_ttf/SDL_ttf.h"
 
 Game init();
 void render(Game *game, struct Enemy *enemies);
@@ -23,16 +26,15 @@ int quit(Game *game);
 int main(int argc, char *argv[]) {
     Game game = init();
         
-    
     // stops working when moved into init() for some reason.
-    char map[MAP_SIZE][MAP_SIZE];
-    game.map = map;
+    // guessing it a problem of scope.
+    Tile tiles[MAP_SIZE][MAP_SIZE];
+    game.map.tiles = tiles;
     initMap(&game); 
 
-    struct Enemy enemies[QUANTITY_ENEMIES];
+    Enemy enemies[QUANTITY_ENEMIES];
     initEnemies(&game, enemies);
-
-
+    
     while (1) {
         SDL_PollEvent(&game.event);
         if (game.event.type == SDL_EVENT_QUIT) {
@@ -42,7 +44,7 @@ int main(int argc, char *argv[]) {
         game.currentTime = SDL_GetTicks();
         game.timeSinceLastRender = game.currentTime - game.lastRenderTime;
         
-        readInputs(&game); 
+        readInputs(&game, enemies); 
 
         if(game.timeSinceLastRender > 1000/FPS) {
            render(&game, enemies);
@@ -62,7 +64,7 @@ Game init() {
     SDL_Event event;
     Player player;
     SDL_FRect rect = { 0, 0, TILE_SIZE, TILE_SIZE };
-    char map[MAP_SIZE][MAP_SIZE];
+    Map map;
     Tile tiles[1];
     unsigned int lastRenderTime = 0;
     unsigned int currentTime = 0;
@@ -75,13 +77,13 @@ Game init() {
         lastRenderTime, // lasttick?
         currentTime, // currenttick?
         timeSinceLastRender, // delta?
-        map, 
+        map,
         *tiles, 
         player
     };
-
+    
     initWindow(&game.window, &game.renderer);
-    initPlayer(&game);
+    initPlayer(&game); 
     SDL_SetRenderScale(game.renderer, RENDER_SCALE, RENDER_SCALE);
 
     // initTiles():create
@@ -105,6 +107,7 @@ void render(Game *game, struct Enemy *enemies) {
     drawMap(game); 
     drawPlayer(game, game->renderer, game->rect, &game->player);
     drawEnemies(game->renderer, game->rect, enemies, &game->player);
+    drawUI(game);
 
     SDL_RenderPresent(game->renderer);
     game->lastRenderTime = game->currentTime;
@@ -117,6 +120,7 @@ int quit(Game *game) {
     SDL_DestroyTexture(game->player.texture);
     SDL_DestroyRenderer(game->renderer);
     SDL_DestroyWindow(game->window);
+    TTF_Quit();
     SDL_Quit();
     return 0;
 }

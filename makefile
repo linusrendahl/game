@@ -181,6 +181,19 @@ SDL3_image-shared/fast:
 	$(MAKE) $(MAKESILENT) -f vendored/SDL_image/CMakeFiles/SDL3_image-shared.dir/build.make vendored/SDL_image/CMakeFiles/SDL3_image-shared.dir/build
 .PHONY : SDL3_image-shared/fast
 
+#=============================================================================
+# Target rules for targets named SDL3_ttf-shared
+
+# Build rule for target.
+SDL3_ttf-shared: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 SDL3_ttf-shared
+.PHONY : SDL3_ttf-shared
+
+# fast build rule for target.
+SDL3_ttf-shared/fast:
+	$(MAKE) $(MAKESILENT) -f vendored/SDL_ttf/CMakeFiles/SDL3_ttf-shared.dir/build.make vendored/SDL_ttf/CMakeFiles/SDL3_ttf-shared.dir/build
+.PHONY : SDL3_ttf-shared/fast
+
 controllers/enemy.o: controllers/enemy.c.o
 .PHONY : controllers/enemy.o
 
@@ -301,6 +314,30 @@ controllers/sdl.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/controllers/sdl.c.s
 .PHONY : controllers/sdl.c.s
 
+controllers/ui.o: controllers/ui.c.o
+.PHONY : controllers/ui.o
+
+# target to build an object file
+controllers/ui.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/controllers/ui.c.o
+.PHONY : controllers/ui.c.o
+
+controllers/ui.i: controllers/ui.c.i
+.PHONY : controllers/ui.i
+
+# target to preprocess a source file
+controllers/ui.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/controllers/ui.c.i
+.PHONY : controllers/ui.c.i
+
+controllers/ui.s: controllers/ui.c.s
+.PHONY : controllers/ui.s
+
+# target to generate assembly for a file
+controllers/ui.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/controllers/ui.c.s
+.PHONY : controllers/ui.c.s
+
 main.o: main.c.o
 .PHONY : main.o
 
@@ -337,6 +374,7 @@ help:
 	@echo "... SDL3-shared"
 	@echo "... SDL3_image-shared"
 	@echo "... SDL3_test"
+	@echo "... SDL3_ttf-shared"
 	@echo "... SDL_uclibc"
 	@echo "... controllers/enemy.o"
 	@echo "... controllers/enemy.i"
@@ -353,6 +391,9 @@ help:
 	@echo "... controllers/sdl.o"
 	@echo "... controllers/sdl.i"
 	@echo "... controllers/sdl.s"
+	@echo "... controllers/ui.o"
+	@echo "... controllers/ui.i"
+	@echo "... controllers/ui.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

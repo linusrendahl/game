@@ -20,14 +20,18 @@ int initWindow(SDL_Window **window, SDL_Renderer **renderer) {
 // Change to SDL_GetKeyboardState instead of events.
 // Keep an array with all keystates[] = bool that are currently in active state.
 // https://wiki.libsdl.org/SDL3/SDL_GetKeyboardState
-void readInputs(Game *game) {
+void readInputs(Game *game, struct Enemy *enemies) {
         //if(player->target_position_x == player->position_x && player->target_position_y == player->position_y) {
 	//	player->isWalking = false;
 	//}
-
         if(game->event.type == SDL_EVENT_KEY_DOWN) {
+            //int j = 13;
+            //bool Jpressed = SDL_GetKeyboardState(&j);
+            //printf("j pressed: %i\n", Jpressed);
+
+            printf("keydown: %i\n", game->event.key.scancode);
             if(game->event.key.scancode == SDL_SCANCODE_J) {
-                playerAttack(game);
+                playerAttack(game, enemies);
             }
             if(game->event.key.scancode == SDL_SCANCODE_S) {
                 playerMove(&game->player, "south");

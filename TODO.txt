@@ -1,35 +1,10 @@
 /** 
  * TODO:
  * - Note: Make it a game asap, dont focus on details.
- *	- Need to change Map
- *		- Map should be an array of Tiles
- *		- each Tile has: texture, isWalkable, position, etc.
- 			- also be able to reference a Tile: ie
-			- Tile is targeted by Skill
- *      - Basic melee attack character.
- *          - Target enemy: 
- *		    - First skill: [j] - Great energy beam / wave
- *                  - Spacebar > Set player->target = enemy.id
- *                  - which enemies are currently on screen?
- *                  - which enemy is the closest? / order of enemies per distance asc
- *                  - should the game even have auto-attacks at all?
- *          - Draw square around enemy.
- *          - Every x.f seconds, player->attackTarget(skill);
- *          - Calculate damage (randomized within an interval, depending on attack power).
- *          - Enemy.hitpoints -= damage
- *          - Enemy.hitpoints <= 0 = dead
- *          - Remove enemy from array of drawn enemies.
- *          - Set a respawn timer, respawn after x seconds
- *          - persist data in sqlite
- *      - Respawn enemies after x seconds.
- *      - Gain experience for killing mobs.
- *      - Enemies blockable.
- *      - Enemies move towards player.
+ *      - Enemies move towards player (new enemy type, not dummy)
  *      - Enemies melee basic attacks.
  *      - Deal damage to player > dead state.
  *      - Healing: spells/potions/auto/leech/etc.
- *
- *
  *
  * - Main game:
  *      - Grind mobs for resources/experience

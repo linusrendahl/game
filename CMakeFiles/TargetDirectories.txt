@@ -9,3 +9,6 @@
 /Users/liren/code/projects/c/game/vendored/SDL_image/CMakeFiles/SDL3_image-shared.dir
 /Users/liren/code/projects/c/game/vendored/SDL_image/CMakeFiles/edit_cache.dir
 /Users/liren/code/projects/c/game/vendored/SDL_image/CMakeFiles/rebuild_cache.dir
+/Users/liren/code/projects/c/game/vendored/SDL_ttf/CMakeFiles/SDL3_ttf-shared.dir
+/Users/liren/code/projects/c/game/vendored/SDL_ttf/CMakeFiles/edit_cache.dir
+/Users/liren/code/projects/c/game/vendored/SDL_ttf/CMakeFiles/rebuild_cache.dir

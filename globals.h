@@ -1,5 +1,5 @@
 #define RENDER_SCALE 1.0f
-#define QUANTITY_ENEMIES  32
+#define QUANTITY_ENEMIES  64
 #define TILE_SIZE 32
 #define FPS 60
 #define GAME_WINDOW_WIDTH 25 * TILE_SIZE 

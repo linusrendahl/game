@@ -3,19 +3,17 @@
 #include <SDL3/SDL.h>
 #include "globals.h"
 
-struct Skill {
-	char hotkey;
-};
+typedef struct GridPosition {
+	int x;
+	int y;
+} GridPosition;
 
-
-struct SkillTree {
-	// graph / matrix
-};
-
-struct UserInput {
-	// current_input
-	// next_input (queue)
-};
+typedef struct Skill {
+	SDL_Scancode hotkey; // J:13
+	bool active;
+	unsigned int activatedTime;
+	GridPosition attackingTiles[4];
+} Skill;
 
 typedef struct Tile {
 	char name;
@@ -24,14 +22,21 @@ typedef struct Tile {
 	bool tileWalkable;
 } Tile;
 
-typedef struct GridPosition {
-	int x;
-	int y;
-} GridPosition;
+typedef struct Enemy {
+	int xp;
+	int maxHitpoints;
+	int hitpoints;
+	int speed;
+	int attack;
+	int position_x;
+	int position_y;
+	SDL_Texture *texture;
+	bool isAlive;
+} Enemy;
 
 typedef struct Map {
-	char (*map)[40];
-	Tile floor;
+	Tile (*tiles)[MAP_SIZE];
+	Enemy *enemies;
 } Map;
 
 enum walkingDirection {
@@ -58,26 +63,13 @@ typedef struct Player {
 	int target_position_x;
 	int target_position_y;
 	int distanceWalked;
+	Skill skills[4];
 	SDL_Texture *texture;
 	bool diagonalMovement;
 	bool isWalking;
 	enum walkingDirection walkingDirection;
 	enum walkingDirection facingDirection;
-	//struct Skill skills[];
 } Player;
-
-struct Enemy {
-	int xp;
-	int maxHitpoints;
-	int hitpoints;
-	int speed;
-	int attack;
-	int position_x;
-	int position_y;
-	SDL_Texture *texture;
-	bool isAlive;
-	struct Skill skills[];
-};
 
 typedef struct Game {
     SDL_Window *window;
@@ -87,8 +79,8 @@ typedef struct Game {
     unsigned int lastRenderTime;
     unsigned int currentTime;
     unsigned int timeSinceLastRender;
-    char (*map)[MAP_SIZE];
-    Tile tiles[1];
+    Map map;
+    Tile tiles[1]; // remove this
     Player player;
 } Game;
 

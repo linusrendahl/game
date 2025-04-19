@@ -14,16 +14,15 @@ GridPosition getRandomTileWalkable(Game *game) {
 	while(true) {
 		pos.x = rand() % 40;
 		pos.y = rand() % 40;
-		bool tileWalkable = game->map[pos.y][pos.x] != 'A';
+		bool tileWalkable = game->map.tiles[pos.y][pos.x].tileWalkable;
 		if(tileWalkable) {
 			break;
 		}
 	}
-	//printf("enemy at x: %i, y: %i, with tile: %c\n", pos.x, pos.y, game->map[pos.y][pos.x]);
 	return pos;
 }
 
-void initEnemies(Game *game, struct Enemy *enemies) {
+void initEnemies(Game *game, Enemy *enemies) {
 	char filename[] = "./assets/sprites/dummy.png";
 	SDL_Texture *dummy;
 	dummy = IMG_LoadTexture(game->renderer, filename);
@@ -31,16 +30,22 @@ void initEnemies(Game *game, struct Enemy *enemies) {
 
 	for (int i=0; i < QUANTITY_ENEMIES; i++) {
 		GridPosition pos = getRandomTileWalkable(game);
-		enemies[i].hitpoints = 100;
-		enemies[i].maxHitpoints = 100;
+		enemies[i].hitpoints = 250;
+		enemies[i].maxHitpoints = 250;
 		enemies[i].position_x = pos.x;
 		enemies[i].position_y = pos.y;
 		enemies[i].texture = dummy;
+		enemies[i].isAlive = true;
+		game->map.tiles[pos.y][pos.x].tileWalkable = false; //@todo: use bool isOccupied instead of tileWalkable.
 	}
 }
 
 void drawEnemies(SDL_Renderer *renderer, SDL_FRect rect, struct Enemy *enemies, struct Player *player) {
+
 	for (size_t i=0; i < QUANTITY_ENEMIES; i++) {
+		if(!enemies[i].isAlive) {
+			continue;
+		}
 		SDL_SetRenderDrawColor(renderer, COLOR_ENEMIES);
 		rect.x = (enemies[i].position_x * TILE_SIZE) - (player->position_x * TILE_SIZE) + (12 * TILE_SIZE) + (player->distanceWalked * (player->position_x - player->target_position_x));
 		rect.y = (enemies[i].position_y * TILE_SIZE) - (player->position_y * TILE_SIZE) + (8 * TILE_SIZE) + (player->distanceWalked * (player->position_y - player->target_position_y));
@@ -72,15 +77,5 @@ void drawEnemies(SDL_Renderer *renderer, SDL_FRect rect, struct Enemy *enemies, 
 		rect.h = 4;
 		rect.w = (TILE_SIZE * ((float)enemies[i].hitpoints / (float)enemies[i].maxHitpoints) - 1);
 		SDL_RenderFillRect(renderer, &rect);
-
 	}
 }
-
-void enemiesSpawn(struct Enemy enemies[], size_t quantityEnemies) {
-	for (int i=0; i < quantityEnemies; i++) {
-		enemies[i].hitpoints = 100;
-		enemies[i].position_x = rand() % 100;
-		enemies[i].position_y = rand() % 100;
-	}
-}
-

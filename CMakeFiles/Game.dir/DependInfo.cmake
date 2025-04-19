@@ -13,6 +13,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/liren/code/projects/c/game/controllers/map.c" "CMakeFiles/Game.dir/controllers/map.c.o" "gcc" "CMakeFiles/Game.dir/controllers/map.c.o.d"
   "/Users/liren/code/projects/c/game/controllers/player.c" "CMakeFiles/Game.dir/controllers/player.c.o" "gcc" "CMakeFiles/Game.dir/controllers/player.c.o.d"
   "/Users/liren/code/projects/c/game/controllers/sdl.c" "CMakeFiles/Game.dir/controllers/sdl.c.o" "gcc" "CMakeFiles/Game.dir/controllers/sdl.c.o.d"
+  "/Users/liren/code/projects/c/game/controllers/ui.c" "CMakeFiles/Game.dir/controllers/ui.c.o" "gcc" "CMakeFiles/Game.dir/controllers/ui.c.o.d"
   "/Users/liren/code/projects/c/game/main.c" "CMakeFiles/Game.dir/main.c.o" "gcc" "CMakeFiles/Game.dir/main.c.o.d"
   )
 
