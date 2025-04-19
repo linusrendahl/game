@@ -85,10 +85,9 @@ void drawPlayer(
 	Game *game,
 	SDL_Renderer *renderer,
 	SDL_FRect rect,
-	Player *player,
-	char map[MAP_SIZE][MAP_SIZE]
+	Player *player
 	) {
-	bool tileWalkable = map[player->target_position_y][player->target_position_x] != 'A';
+	bool tileWalkable = game->map[player->target_position_y][player->target_position_x] != 'A';
 	if(player->distanceWalked >= TILE_SIZE || !tileWalkable) {
 		player->isWalking = false;
 		player->distanceWalked = 0;

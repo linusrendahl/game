@@ -17,20 +17,19 @@
 #include "controllers/map.h"
 
 Game init();
-void render(Game *game, Map *theMap, char map[MAP_SIZE][MAP_SIZE], struct Enemy *enemies);
+void render(Game *game, struct Enemy *enemies);
 int quit(Game *game);
 
 int main(int argc, char *argv[]) {
     Game game = init();
-    Map theMap;
-    
-    // move to game object:
+        
     struct Enemy enemies[QUANTITY_ENEMIES];
     initEnemies(enemies);
+
+    // stops working when moved into init() for some reason.
     char map[MAP_SIZE][MAP_SIZE];
-
-    initMap(&game, &theMap, map); 
-
+    game.map = map;
+    initMap(&game); 
 
     while (1) {
         SDL_PollEvent(&game.event);
@@ -44,7 +43,7 @@ int main(int argc, char *argv[]) {
         readInputs(&game); 
 
         if(game.timeSinceLastRender > 1000/FPS) {
-           render(&game, &theMap, map, enemies);
+           render(&game, enemies);
         }
     }
 
@@ -62,14 +61,34 @@ Game init() {
     Player player;
     SDL_FRect rect = { 0, 0, TILE_SIZE, TILE_SIZE };
     char map[MAP_SIZE][MAP_SIZE];
+    Tile tiles[1];
     unsigned int lastRenderTime = 0;
     unsigned int currentTime = 0;
     unsigned int timeSinceLastRender = 0;
-    Game game = {window, renderer, event, rect, map[0], lastRenderTime, currentTime, timeSinceLastRender, player};
+    Game game = {
+        window, 
+        renderer, 
+        event, 
+        rect,
+        lastRenderTime, 
+        currentTime, 
+        timeSinceLastRender, 
+        map, 
+        *tiles, 
+        player
+    };
 
     initWindow(&game.window, &game.renderer);
     initPlayer(&game);
     SDL_SetRenderScale(game.renderer, RENDER_SCALE, RENDER_SCALE);
+
+    // initTiles():create
+    char floorfile[] = "./assets/sprites/floor.png";
+    SDL_Texture *floorTexture;
+    floorTexture = IMG_LoadTexture(game.renderer, floorfile);
+    SDL_SetTextureScaleMode(floorTexture, SDL_SCALEMODE_NEAREST);
+    game.tiles[0].texture = floorTexture;
+    game.tiles[0].name = 'B';
 
     return game;
 }
@@ -77,12 +96,12 @@ Game init() {
 /**
  * Lets draw!
  */
-void render(Game *game, Map *theMap, char map[MAP_SIZE][MAP_SIZE], struct Enemy *enemies) {
+void render(Game *game, struct Enemy *enemies) {
     SDL_SetRenderDrawColor(game->renderer, 0, 0, 0, 0);
     SDL_RenderClear(game->renderer);
 
-    drawMap(game, theMap, map); 
-    drawPlayer(game, game->renderer, game->rect, &game->player, map);
+    drawMap(game); 
+    drawPlayer(game, game->renderer, game->rect, &game->player);
     drawEnemies(game->renderer, game->rect, enemies, &game->player);
 
     SDL_RenderPresent(game->renderer);

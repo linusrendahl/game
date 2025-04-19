@@ -18,13 +18,14 @@ struct UserInput {
 };
 
 typedef struct Tile {
+	char name;
 	SDL_Texture *texture;
 	int speed;
 	bool tileWalkable;
 } Tile;
 
 typedef struct Map {
-	char *map;
+	char (*map)[40];
 	Tile floor;
 } Map;
 
@@ -76,10 +77,11 @@ typedef struct Game {
     SDL_Renderer *renderer;
     SDL_Event event;
     SDL_FRect rect;
-    char *map;
     unsigned int lastRenderTime;
     unsigned int currentTime;
     unsigned int timeSinceLastRender;
+    char (*map)[MAP_SIZE];
+    Tile tiles[1];
     Player player;
 } Game;
 
