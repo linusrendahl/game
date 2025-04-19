@@ -1,6 +1,11 @@
 /** 
  * TODO:
  * - Note: Make it a game asap, dont focus on details.
+ *	- Need to change Map
+ *		- Map should be an array of Tiles
+ *		- each Tile has: texture, isWalkable, position, etc.
+ 			- also be able to reference a Tile: ie
+			- Tile is targeted by Skill
  *      - Basic melee attack character.
  *          - Target enemy: 
  *		    - First skill: [j] - Great energy beam / wave

@@ -62,6 +62,7 @@ typedef struct Player {
 	bool diagonalMovement;
 	bool isWalking;
 	enum walkingDirection walkingDirection;
+	enum walkingDirection facingDirection;
 	//struct Skill skills[];
 } Player;
 

@@ -26,6 +26,9 @@ void readInputs(Game *game) {
 	//}
 
         if(game->event.type == SDL_EVENT_KEY_DOWN) {
+            if(game->event.key.scancode == SDL_SCANCODE_J) {
+                playerAttack(game);
+            }
             if(game->event.key.scancode == SDL_SCANCODE_S) {
                 playerMove(&game->player, "south");
             }
