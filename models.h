@@ -24,6 +24,11 @@ typedef struct Tile {
 	bool tileWalkable;
 } Tile;
 
+typedef struct GridPosition {
+	int x;
+	int y;
+} GridPosition;
+
 typedef struct Map {
 	char (*map)[40];
 	Tile floor;
@@ -57,7 +62,7 @@ typedef struct Player {
 	bool diagonalMovement;
 	bool isWalking;
 	enum walkingDirection walkingDirection;
-	struct Skill skills[];
+	//struct Skill skills[];
 } Player;
 
 struct Enemy {
@@ -68,6 +73,7 @@ struct Enemy {
 	int attack;
 	int position_x;
 	int position_y;
+	SDL_Texture *texture;
 	bool isAlive;
 	struct Skill skills[];
 };

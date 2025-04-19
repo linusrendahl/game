@@ -1,15 +1,13 @@
 /** 
  * TODO:
  * - Note: Make it a game asap, dont focus on details.
- *      - Step 1: Refactor code!
- *      	- define better: player_grid_position and player_pixel_position
  *      - Basic melee attack character.
  *          - Target enemy: 
+ *		    - First skill: [j] - Great energy beam / wave
  *                  - Spacebar > Set player->target = enemy.id
  *                  - which enemies are currently on screen?
  *                  - which enemy is the closest? / order of enemies per distance asc
  *                  - should the game even have auto-attacks at all?
- *                  - First skill: [j] - Great energy beam / wave
  *          - Draw square around enemy.
  *          - Every x.f seconds, player->attackTarget(skill);
  *          - Calculate damage (randomized within an interval, depending on attack power).

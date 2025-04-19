@@ -23,13 +23,15 @@ int quit(Game *game);
 int main(int argc, char *argv[]) {
     Game game = init();
         
-    struct Enemy enemies[QUANTITY_ENEMIES];
-    initEnemies(enemies);
-
+    
     // stops working when moved into init() for some reason.
     char map[MAP_SIZE][MAP_SIZE];
     game.map = map;
     initMap(&game); 
+
+    struct Enemy enemies[QUANTITY_ENEMIES];
+    initEnemies(&game, enemies);
+
 
     while (1) {
         SDL_PollEvent(&game.event);
@@ -69,10 +71,10 @@ Game init() {
         window, 
         renderer, 
         event, 
-        rect,
-        lastRenderTime, 
-        currentTime, 
-        timeSinceLastRender, 
+        rect, //do we need a global rect?
+        lastRenderTime, // lasttick?
+        currentTime, // currenttick?
+        timeSinceLastRender, // delta?
         map, 
         *tiles, 
         player

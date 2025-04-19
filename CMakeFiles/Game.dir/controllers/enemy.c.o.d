@@ -161,5 +161,6 @@ CMakeFiles/Game.dir/controllers/enemy.c.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/malloc/_malloc_type.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/sys/_types/_dev_t.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/sys/_types/_mode_t.h \
+  /Users/liren/code/projects/c/game/controllers/../vendored/SDL_image/include/SDL3_image/SDL_image.h \
   /Users/liren/code/projects/c/game/controllers/../models.h \
   /Users/liren/code/projects/c/game/controllers/../globals.h

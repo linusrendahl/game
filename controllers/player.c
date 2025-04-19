@@ -19,6 +19,7 @@ void initPlayer(Game *game) {
 	SDL_Texture *playerTexture;
 	playerTexture = IMG_LoadTexture(game->renderer, filename);
 	SDL_SetTextureScaleMode(playerTexture, SDL_SCALEMODE_NEAREST);	
+
 	game->player.xp = 200;
 	game->player.attack = 42;
 	game->player.speed = 800;
@@ -69,9 +70,6 @@ void playerMove(struct Player *player, char direction[]) {
 		}
 		player->isWalking = true;
 	}
-
-	//printf("Player target is %s [x: %d, y: %d]. Position is [x: %d, y: %d]\n", direction, player->target_position_x, player->target_position_y, player->position_x, player->position_y);
-
 };
 
 void playerAttack(Player *player, struct Enemy *enemy) {
@@ -88,6 +86,10 @@ void drawPlayer(
 	Player *player
 	) {
 	bool tileWalkable = game->map[player->target_position_y][player->target_position_x] != 'A';
+	//printf("player target x: %i, y: %i, with tile: %c\n", player->target_position_x, player->target_position_y, game->map[player->target_position_y][player->target_position_x]);
+
+	// this logic should be in the playerMove() func
+	// add logic to isOccupied() -> if enemy is already standing there.
 	if(player->distanceWalked >= TILE_SIZE || !tileWalkable) {
 		player->isWalking = false;
 		player->distanceWalked = 0;

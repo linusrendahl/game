@@ -105,6 +105,7 @@ CMakeFiles/Game.dir/controllers/enemy.c.o: controllers/enemy.c \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include/stdint.h \
   globals.h \
   models.h \
+  vendored/SDL_image/include/SDL3_image/SDL_image.h \
   vendored/SDL/include/SDL3/SDL.h \
   vendored/SDL/include/SDL3/SDL_assert.h \
   vendored/SDL/include/SDL3/SDL_asyncio.h \
@@ -756,8 +757,6 @@ CMakeFiles/Game.dir/main.c.o: main.c \
 
 controllers/enemy.h:
 
-vendored/SDL_image/include/SDL3_image/SDL_image.h:
-
 controllers/map.c:
 
 controllers/map.h:
@@ -837,6 +836,8 @@ vendored/SDL/include/SDL3/SDL_atomic.h:
 vendored/SDL/include/SDL3/SDL_assert.h:
 
 vendored/SDL/include/SDL3/SDL.h:
+
+vendored/SDL_image/include/SDL3_image/SDL_image.h:
 
 globals.h:
 
